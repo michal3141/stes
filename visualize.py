@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import os
 
 origin_to_index = {
     'Skawina': 1,
@@ -9,14 +10,17 @@ origin_to_index = {
     'Biezanow': 7,
     'Niepolomice': 8
 }
-index_to_origin = ['None', 'Skawina', 'Południe', 'Łagiewniki', 'Tuchowska', 'Blacharska', 'Wieliczka', 'Bieżanów', 'Niepołomice']
+
+index_to_origin = [None, 'Skawina', 'Południe', 'Łagiewniki', 'Tuchowska', 'Blacharska', 'Wieliczka', 'Bieżanów', 'Niepołomice']
+
+legend = [index_to_origin[e] for e in [1, 2, 3, 4, 5, 7, 8]]
 
 def visualize(criterion):
     x = []
     y = []
     z = []
     i = 0 
-    with open('%s.csv' % criterion, 'r') as f:
+    with open(os.path.join('results', '%s.csv') % criterion, 'r') as f:
         for line in f:
             x.append(i)
             arr = line.strip().split(',')
@@ -26,21 +30,30 @@ def visualize(criterion):
             arr2 = variant.strip().split('W')
             z.append(int(arr2[1]))
             i += 1
-    plt.scatter(x, y, c=y)
-    plt.xlabel('Pozycja wariantu w rankingu')
-    plt.ylabel('Numer węzła początkowego')
-    plt.title('WAP węzły %s' % criterion)
+
+    result = plt.scatter(x, y, c=y, cmap='gist_rainbow')
+    plt.xlabel('Pozycja Wariantu w Rankingu WAP')
+    plt.ylabel('Numer Węzła Początkowego')
+    plt.title('WAP Węzły %s' % criterion)
+    plt.legend(handles=result.legend_elements()[0],
+        labels=legend,
+        title='Węzły Początkowe'
+    )
     plt.show()
 
-    plt.scatter(x, z, c=y)
-    plt.xlabel('Pozycja wariantu w rankingu')
-    plt.ylabel('Pierwszy odcinek decyzyjny')
-    plt.title('WAP odcinki %s' % criterion)
+    result = plt.scatter(x, z, c=y, cmap='gist_rainbow')
+    plt.xlabel('Pozycja Wariantu w Rankingu WAP')
+    plt.ylabel('Pierwszy Odcinek Decyzyjny')
+    plt.title('WAP Odcinki %s' % criterion)
+    plt.legend(handles=result.legend_elements()[0],
+        labels=legend,
+        title='Węzły Początkowe'
+    )
     plt.show()
 
 def compare_waps():
     variant_to_index = {}
-    with open('WAP_Ranking.csv', 'r') as f:
+    with open(os.path.join('data', 'WAP_Ranking.csv'), 'r') as f:
         f.readline()
         for line in f:
             arr = line.strip().split(',')
@@ -51,7 +64,7 @@ def compare_waps():
     x = []
     y = []
     c = []
-    with open('sumarycznie.csv', 'r') as f:
+    with open(os.path.join('results', 'sumarycznie.csv'), 'r') as f:
         for line in f:
             arr = line.strip().split(',')
             origin  = arr[0]
@@ -60,20 +73,53 @@ def compare_waps():
             x.append(i)
             y.append(variant_to_index[variant])
             i += 1
-    result = plt.scatter(x, y, c=c)
-    plt.xlabel('Pozycja Wariantu w Rankingu WAP')
-    plt.ylabel('Pozycja wariantu w Rankingu IVIA')
-    plt.title('WAP vs IVIA')
-    legend = [index_to_origin[e] for e in [1, 2, 3, 4, 5, 7, 8]]
+    result = plt.scatter(x, y, c=c, cmap='gist_rainbow')
+    plt.xlabel('Pozycja Wariantu w Rankingu WAP - Analiza Własna')
+    plt.ylabel('Pozycja Wariantu w Rankingu WAP - Analiza IVIA')
+    plt.title('Pozycja Wariantu WAP')
     plt.legend(handles=result.legend_elements()[0],
         labels=legend,
         title='Węzły Początkowe'
     )
     plt.show()
   
+def collisions():
+    x = []
+    y = []
+    z = []
+    with open(os.path.join('results', 'budynki-mieszkalne.csv'), 'r') as f:
+        for line in f:
+            arr = line.strip().split(',')
+            origin = arr[0]
+            y.append(origin_to_index[origin])
+            variant = arr[1]
+            arr2 = variant.strip().split('W')
+            z.append(int(arr2[1]))
+            buildings = int(arr[2])
+            x.append(buildings)
 
+    result = plt.scatter(x, y, c=y, cmap='gist_rainbow')
+    plt.xlabel('Liczba Wyburzeń Budynków Mieszkalnych')
+    plt.ylabel('Numer Węzła Początkowego')
+    plt.title('Liczba Wyburzeń Węzły')
+    plt.legend(handles=result.legend_elements()[0],
+        labels=legend,
+        title='Węzły Początkowe'
+    )
+    plt.show()
+
+    result = plt.scatter(x, z, c=y, cmap='gist_rainbow')
+    plt.xlabel('Liczba Wyburzeń Budynków Mieszkalnych')
+    plt.ylabel('Pierwszy Odcinek Decyzyjny')
+    plt.title('Liczba Wyburzeń Odcinki')
+    plt.legend(handles=result.legend_elements()[0],
+        labels=legend,
+        title='Węzły Początkowe'
+    )
+    plt.show()
 
 def main():
+    collisions()
     compare_waps()
     visualize('sumarycznie')
     visualize('przestrzenno-spoleczne')
