@@ -25,10 +25,36 @@ Poniższy wykres przedstawia również liczbę wyburzeń budynków mieszkalnych,
 Dzięki temu możemy zobaczyć jak liczba wyburzeń przedstawia się w zależności od tego który z 50-ciu różnych wariantów na pierwszym odcinku decyzyjnym został wybrany (od W1 do W50).
 ![Alt text](graphs/liczba_wyburzen_odcinki.png?raw=true "Title")
 
+Następny wykres przedstawia już pozycję na liście wariantu według WAP po uwzględnieniu wszystkich kryteriów.
+Na osi X mamy pozycję wariantu w rankingu według WAP, na osi Y mamy numer węzła początkowego.
+Według analizy najlepiej wypadają warianty z węzłów Południe i Łagiewniki, następnie z węzłów Skawina, Tuchowska i Blacharska, a najgorzej wypadają warianty z węzłów Bieżanów i Niepołomice.
+![Alt text](graphs/sumarycznie_wezly.png?raw=true "Title")
+
+Poniżej analogiczny wykres jak wyżej, ale tym razem na osi Y mamy numer wariantu na pierwszym odcinku decyzyjnym (od W1 do W50).
+![Alt text](graphs/sumarycznie_odcinki.png?raw=true "Title")
+
+Istotne jest pytanie jak ta klasyfikacja/ranking wariantów ma się do klasyfikacji przedstawionej w STEŚ przez firmię IVIA.
+Następny wykres to obrazuje. Na osi X mamy pozycję wariantu w naszej klasyfikacji, na osi Y odpowiadającą pozycję obliczoną w opracowaniu STEŚ.
+Widzimy że istnieje wyraźna korelacja między klasyfikacjami, ale nie są one tożsame ze względu na różnice w modelach matematycznych użytych do obliczania WAP.
+![Alt text](graphs/pozycja_wariantow_opracowanie_wlasne_vs_stes.png?raw=true "Title")
+
+Kolejny wykres przedstawia ranking wariantów wariantów według kryterium przestrzenno-społecznego. Na osi X mamy pozycję wariantu w tym kryterium, na osi Y mamy numer węzła początkowego.
+Widzimy, że według tego kryterium dość dobrze wypadają niektóre warianty z węzłów Tuchowska, Blacharska i Niepołomice.
+![Alt text](graphs/spoleczne_wezly.png?raw=true "Title")
+
+Analogiczny wykres jak powyżej tylko na osi Y mamy numer wariantu na pierwszym odcinku decyzyjnym (od W1 do W50).
+![Alt text](graphs/spoleczne_odcinki.png?raw=true "Title")
+
+Na wykresie poniżej mamy warianty w ujęciu kryterium transportowo-ruchowego. Wyraźnie widać że im dalsze węzły początkowe od przebiegu obecnej Zakopianki (węzeł Południe) tym gorsze wyniki dla tego kryterium.
+![Alt text](graphs/transportowe_wezly.png?raw=true "Title")
+
+Analogiczny wykres jak powyżej tylko na osi Y mamy numer wariantu na pierwszym odcinku decyzjnym (od W1 do W50).
+![Alt text](graphs/transportowe_odcinki.png?raw=true "Title")
+
+Więcej wykresów w podkatalogu [graphs](graphs/)
+
+# Uwagi
+
 MODYFIKACJE ARKUSZY:
-W pierwszym arkuszu -> Składowiska odpadów W11 była literka "h". Zamienione na 0.
-
-@TODO:
-Sprawdzić najlepsze warianty wyjściowe z w. Łagiewniki, Tuchowska, Blacharska
-
+W arkuszu z danymi dla pierwszego odcinka decyzyjnego w podkryterium "Składowiska odpadów" dla wariantu W11 była literka "h". Zamienione na 0.
 
