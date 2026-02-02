@@ -9,6 +9,7 @@ origin_to_index = {
     'Biezanow': 7,
     'Niepolomice': 8
 }
+index_to_origin = ['None', 'Skawina', 'Południe', 'Łagiewniki', 'Tuchowska', 'Blacharska', 'Wieliczka', 'Bieżanów', 'Niepołomice']
 
 def visualize(criterion):
     x = []
@@ -59,10 +60,15 @@ def compare_waps():
             x.append(i)
             y.append(variant_to_index[variant])
             i += 1
-    plt.scatter(x, y, c=c)
-    plt.xlabel('Pozycja wariantu w rankingu WAP')
-    plt.ylabel('Pozycja wariantu w rankingu IVIA')
+    result = plt.scatter(x, y, c=c)
+    plt.xlabel('Pozycja Wariantu w Rankingu WAP')
+    plt.ylabel('Pozycja wariantu w Rankingu IVIA')
     plt.title('WAP vs IVIA')
+    legend = [index_to_origin[e] for e in [1, 2, 3, 4, 5, 7, 8]]
+    plt.legend(handles=result.legend_elements()[0],
+        labels=legend,
+        title='Węzły Początkowe'
+    )
     plt.show()
   
 

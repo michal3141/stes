@@ -1,6 +1,7 @@
 from collections import defaultdict
 from statistics import mean
 import pandas as pd
+import os
 
 # Mapping between possible connections between the decision interval I and decision interval II
 d1_to_d2 = {
@@ -171,9 +172,9 @@ def main():
     budynki_mieszkalne_res = {}
     budynki_mieszkalne_origin = defaultdict(list)
 
-    df1 = pd.read_csv('WAP_Dane_D1.csv')
-    df2 = pd.read_csv('WAP_Dane_D2.csv')
-    df3 = pd.read_csv('WAP_Dane_D3.csv')
+    df1 = pd.read_csv(os.path.join('data', 'WAP_Dane_D1.csv'))
+    df2 = pd.read_csv(os.path.join('data', 'WAP_Dane_D2.csv'))
+    df3 = pd.read_csv(os.path.join('data', 'WAP_Dane_D3.csv'))
     print(df1)
     print(df1.dtypes)
     print(df1['W1'])
@@ -251,8 +252,8 @@ def main():
     scores[criterion] = score
 
     print(budynki_mieszkalne_res)
-    with open('budynki-mieszkalne.csv', 'w') as f:
-        f.write('Wezel,Kombinacja,Wyburzenia_Mieszkalne\n')
+    with open(os.path.join('results', 'budynki-mieszkalne.csv'), 'w') as f:
+        #f.write('Wezel,Kombinacja,Wyburzenia_Mieszkalne\n')
         for k, v in budynki_mieszkalne_res.items():
             f.write('%s,%s,%s\n' % (get_origin(k[0]), 'W%dW%dW%d' % (k[0], k[1], k[2]), str(v)))
 
@@ -260,7 +261,7 @@ def main():
     print('Wyniki dla kryterium przestrzenno-społecznego:')
     print(przestrzenno_spoleczne)
     przestrzenno_spoleczne_dict = przestrzenno_spoleczne.to_dict()
-    with open('przestrzenno-spoleczne.csv', 'w') as f:
+    with open(os.path.join('results', 'przestrzenno-spoleczne.csv'), 'w') as f:
         #f.write('Wezel,Kombinacja,Ocena\n')
         for k, v in przestrzenno_spoleczne_dict.items():
             f.write('%s,%s,%s\n' % (get_origin(k[0]), 'W%dW%dW%d' % (k[0], k[1], k[2]), str(v)))
@@ -269,7 +270,7 @@ def main():
     print('Wyniki dla kryterium ekonomicznego:')
     print(ekonomiczne)
     ekonomiczne_dict = ekonomiczne.to_dict()
-    with open('ekonomiczne.csv', 'w') as f:
+    with open(os.path.join('results', 'ekonomiczne.csv'), 'w') as f:
         #f.write('Wezel,Kombinacja,Ocena\n')
         for k, v in ekonomiczne_dict.items():
             f.write('%s,%s,%s\n' % (get_origin(k[0]), 'W%dW%dW%d' % (k[0], k[1], k[2]), str(v)))
@@ -278,7 +279,7 @@ def main():
     print('Wyniki dla kryterium srodowiskowego:')
     print(srodowiskowe)
     srodowiskowe_dict = srodowiskowe.to_dict()
-    with open('srodowiskowe.csv', 'w') as f:
+    with open(os.path.join('results', 'srodowiskowe.csv'), 'w') as f:
         #f.write('Wezel,Kombinacja,Ocena\n')
         for k, v in srodowiskowe_dict.items():
             f.write('%s,%s,%s\n' % (get_origin(k[0]), 'W%dW%dW%d' % (k[0], k[1], k[2]), str(v)))
@@ -287,7 +288,7 @@ def main():
     print('Wyniki dla kryterium transportowego:')
     print(transportowe)
     transportowe_dict = transportowe.to_dict()
-    with open('transportowe.csv', 'w') as f:
+    with open(os.path.join('results', 'transportowe.csv'), 'w') as f:
         #f.write('Wezel,Kombinacja,Ocena\n')
         for k, v in transportowe_dict.items():
             f.write('%s,%s,%s\n' % (get_origin(k[0]), 'W%dW%dW%d' % (k[0], k[1], k[2]), str(v)))
@@ -296,7 +297,7 @@ def main():
     print('Wyniki sumarycznie:')
     print(sumarycznie)
     sumarycznie_dict = sumarycznie.to_dict()
-    with open('sumarycznie.csv', 'w') as f:
+    with open(os.path.join('results', 'sumarycznie.csv'), 'w') as f:
         #f.write('Wezel,Kombinacja,Ocena\n')
         for k, v in sumarycznie_dict.items():
             f.write('%s,%s,%s\n' % (get_origin(k[0]), 'W%dW%dW%d' % (k[0], k[1], k[2]), str(v)))
