@@ -9,7 +9,29 @@ Przy normalizacji uwzględniono różne rodzaje kryteriów.
 Po normalizacji obliczono średnie ważone zgodnie ze standardowymi wzorami uwzględniając też kryteria w których większość lub wszystkie wartości były zerowe.
 W wyniku tego oceny większości kryteriów zostały "rozwodnione" obecnością dużej liczby zer, ale nie powinno to stanowić problemu.
 
-# Wyniki
+# Pliki Źródłowe i Wynikowe
+
+Pliki z danymi źródłowymi na podstawie opublikowanej w STEŚ dokumentacji dotyczącej analizy wielokryterialnej:
+
+- Dla pierwszego odcinka decyzyjnego: [Dane_I_Odcinek_Decyzyjny](data/WAP_Dane_D1.csv)
+- Dla drugiego odcinka decyzyjnego: [Dane_II_Odcinek_Decyzyjny](data/WAP_Dane_D2.csv)
+- Dla trzeciego odcinka decyzyjnego: [Dane_III_Odcinek_Decyzyjny](data/WAP_Dane_D3.csv)
+- Ranking wariantów według opracowania w STEŚ: [Ranking_Wariantów_IVIA](data/WAP_Ranking.csv)
+
+Pliki z obliczonymi rankingami wariantów według różnych kryteriów:
+
+- Ranking wariantów według liczby wyburzeń budynków mieszkalnych: [Budynki_Mieszkalne_Ranking](results/budynki-mieszkalne.csv)
+- Ranking wariantów z uwzględnieniem wszystkich kryteriów: [Sumaryczny_Ranking](results/sumarycznie.csv)
+- Ranking warianatów według kryterium transportowo-ruchowego: [Transportowo_Ruchowe_Ranking](results/transportowe.csv)
+- Ranking warianatów według kryterium ekonomicznego: [Ekonomiczne_Ranking](results/ekonomiczne.csv)
+- Ranking warianatów według kryterium przestrzenno-społecznego: [Przestrzenno_Społeczne_Ranking](results/przestrzenno-spoleczne.csv)
+- Ranking warianatów według kryterium środowiskowego: [Środowiskowe_Ranking](results/srodowiskowe.csv)
+
+Pliki z kodem źródłowym:
+- Program obliczający ranking wariantów: [wap.py](wap.py)
+- Program wizualizujący wyniki: [visualize.py](visualize.py)
+
+# Wyniki Analiz
 
 Poniżej omówione zostaną wyniki własnych analiz WAP (wielokryterialna analiza porównawcza).
 Wyniki przedstawiane są w postaci wykresów z komentarzem.
