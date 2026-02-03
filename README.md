@@ -22,10 +22,10 @@ Pliki z obliczonymi rankingami wariantów według różnych kryteriów:
 
 - Ranking wariantów według liczby wyburzeń budynków mieszkalnych: [Budynki_Mieszkalne_Ranking](results/budynki-mieszkalne.csv)
 - Ranking wariantów z uwzględnieniem wszystkich kryteriów: [Sumaryczny_Ranking](results/sumarycznie.csv)
-- Ranking warianatów według kryterium transportowo-ruchowego: [Transportowo_Ruchowe_Ranking](results/transportowe.csv)
-- Ranking warianatów według kryterium ekonomicznego: [Ekonomiczne_Ranking](results/ekonomiczne.csv)
-- Ranking warianatów według kryterium przestrzenno-społecznego: [Przestrzenno_Społeczne_Ranking](results/przestrzenno-spoleczne.csv)
-- Ranking warianatów według kryterium środowiskowego: [Środowiskowe_Ranking](results/srodowiskowe.csv)
+- Ranking wariantów według kryterium transportowo-ruchowego: [Transportowo_Ruchowe_Ranking](results/transportowe.csv)
+- Ranking wariantów według kryterium ekonomicznego: [Ekonomiczne_Ranking](results/ekonomiczne.csv)
+- Ranking wariantów według kryterium przestrzenno-społecznego: [Przestrzenno_Społeczne_Ranking](results/przestrzenno-spoleczne.csv)
+- Ranking wariantów według kryterium środowiskowego: [Środowiskowe_Ranking](results/srodowiskowe.csv)
 
 Pliki z kodem źródłowym:
 - Program obliczający ranking wariantów: [wap.py](wap.py)
