@@ -221,9 +221,9 @@ def main():
                 criteria_index += 1
             wmean_num = 0 * row[3:]
             wmean_denom = 0
-        #print(row['Podkryterium - Obiekt'])
+        print(row['Podkryterium - Obiekt'])
         weight = row['Waga podkryterium']
-        #print('Waga podkryterium:', weight)
+        print('Waga podkryterium:', weight)
         s = row[3:]
         smin = s.min()
         smax = s.max()
@@ -238,7 +238,10 @@ def main():
             if index in stimulants:
                 print('Stimulant:' + row['Podkryterium - Obiekt'])
                 sn = 5.0 - sn
-        #print(sn)
+        print(s)
+        print('smin: ', smin, ' ,smax: ', smax)
+        print(sn)
+        print('------------------------------------')
         wmean_num += weight*sn
         wmean_denom += weight
     print('-----------Wyniki:-----------------')
