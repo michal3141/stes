@@ -158,9 +158,6 @@ def get_origin(i):
     elif i == 50:
         return 'Niepolomice'
 
-def min_max_normalize(row):
-    return None
-
 def main():
     cnt = 0
     budynki_mieszkalne = [
@@ -239,6 +236,7 @@ def main():
             sn = 5.0*(s-smin)/(smax-smin)
             # For criteria which are stimulants we invert the scores:
             if index in stimulants:
+                print('Stimulant:' + row['Podkryterium - Obiekt'])
                 sn = 5.0 - sn
         #print(sn)
         wmean_num += weight*sn
